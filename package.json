@@ -1,8 +1,8 @@
 {
   "name": "super-modal-react",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Super Modal React is a customizable and flexible modal component for React applications. With React Modal, you can easily display pop-up windows that contain any kind of content, such as text, images, forms, or other React components",
-  "main": "index.js",
+  "main": "./index.js",
   "scripts": {
     "test": "react-scripts test",
     "build": "babel src --out-dir lib --copy-files"
