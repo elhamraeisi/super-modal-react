@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Modal.css'
 
 /**
@@ -27,6 +27,5 @@ const Modal = ({ isOpen, setIsOpen, content, title }) => {
     </>
   );
 };
-
 
 export default Modal;
