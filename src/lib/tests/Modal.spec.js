@@ -1,7 +1,7 @@
 /* eslint-disable testing-library/prefer-screen-queries */
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import Modal from './Modal';
+import { render, fireEvent, screen } from '@testing-library/react';
+import Modal from './../components/Modal';
 
 describe('Modal component', () => {
   const setIsOpenMock = jest.fn();
@@ -18,8 +18,8 @@ describe('Modal component', () => {
   });
 
   it('displays the title passed as a prop', () => {
-    const { getByText } = render(<Modal isOpen={true} setIsOpen={setIsOpenMock} content={contentMock} title={titleMock} />);
-    expect(getByText(titleMock)).toBeInTheDocument();
+    render(<Modal isOpen={true} setIsOpen={setIsOpenMock} content={contentMock} title={titleMock} />);
+    expect(screen.getByText(titleMock)).toBeDefined();
   });
 
   it('calls the setIsOpen function when the close button is clicked', () => {
@@ -31,7 +31,7 @@ describe('Modal component', () => {
   it('displays the content returned by the content prop function', () => {
     const contentTextMock = 'Test content';
     contentMock.mockReturnValueOnce(<p>{contentTextMock}</p>);
-    const { getByText } = render(<Modal isOpen={true} setIsOpen={setIsOpenMock} content={contentMock} title={titleMock} />);
-    expect(getByText(contentTextMock)).toBeInTheDocument();
+    render(<Modal isOpen={true} setIsOpen={setIsOpenMock} content={contentMock} title={titleMock} />);
+    expect(screen.getByText(contentTextMock)).toBeDefined();
   });
 });
